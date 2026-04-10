@@ -6,8 +6,15 @@ import win32com.client
 import pythoncom
 from contextlib import contextmanager
 from typing import Optional, List, Tuple, Any
-from constants import Point3D, AcInputFlags, AcAngleUnits, AcUnits, AcCoordinateSystem
-from exceptions import ConnectionError, UserInputError
+# 动态导入，支持作为包或独立模块运行
+if __package__:
+    # 作为包的一部分运行，使用相对导入
+    from .constants import Point3D, AcInputFlags, AcAngleUnits, AcUnits, AcCoordinateSystem
+    from .exceptions import ConnectionError, UserInputError
+else:
+    # 作为独立模块运行，使用绝对导入
+    from constants import Point3D, AcInputFlags, AcAngleUnits, AcUnits, AcCoordinateSystem
+    from exceptions import ConnectionError, UserInputError
 
 class UserInputMixin:
     """用户输入和几何计算混合类"""

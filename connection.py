@@ -5,8 +5,15 @@ CAD管理器连接管理模块
 import win32com.client
 import pythoncom
 from typing import Any, List
-from constants import Point3D, Point2D
-from exceptions import ConnectionError
+# 动态导入，支持作为包或独立模块运行
+if __package__:
+    # 作为包的一部分运行，使用相对导入
+    from .constants import Point3D, Point2D
+    from .exceptions import ConnectionError
+else:
+    # 作为独立模块运行，使用绝对导入
+    from constants import Point3D, Point2D
+    from exceptions import ConnectionError
 
 class ConnectionMixin:
     """连接管理混合类"""

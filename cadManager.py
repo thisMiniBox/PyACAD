@@ -10,10 +10,19 @@ AutoCAD COM API 类型安全的管理类 - 主入口点
         cad.add_circle([50, 50, 0], 25)
 """
 
-from cad_manager import CadManager
-from constants import *
-from exceptions import *
-from utils import *
+# 动态导入，支持作为包或独立模块运行
+if __package__:
+    # 作为包的一部分运行，使用相对导入
+    from .cad_manager import CadManager
+    from .constants import *
+    from .exceptions import *
+    from .utils import *
+else:
+    # 作为独立模块运行，使用绝对导入
+    from cad_manager import CadManager
+    from constants import *
+    from exceptions import *
+    from utils import *
 
 # 导出公共接口
 __all__ = [

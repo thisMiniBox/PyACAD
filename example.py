@@ -3,7 +3,7 @@ CAD管理器使用示例
 此文件展示如何使用拆分后的CAD管理器模块。
 """
 
-from CadManager import CadManager, degrees_to_radians, create_point_3d
+from cadManager import CadManager, degrees_to_radians, create_point_3d
 
 def main():
     print("AutoCAD CAD管理器示例")

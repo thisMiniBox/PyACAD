@@ -2,9 +2,17 @@
 CAD管理器实体创建模块
 """
 
-from typing import List, Optional, Any
-from constants import Point3D, Point2D, Vector3D, AcPatternType
-from exceptions import ConnectionError
+from typing import List, Optional, Any, Sequence
+# 动态导入，支持作为包或独立模块运行
+if __package__:
+    # 作为包的一部分运行，使用相对导入
+    from .constants import Point3D, Point2D, Vector3D, AcPatternType
+    from .exceptions import ConnectionError
+else:
+    # 作为独立模块运行，使用绝对导入
+    from constants import Point3D, Point2D, Vector3D, AcPatternType
+    from exceptions import ConnectionError
+
 
 class EntitiesMixin:
     """实体创建混合类"""
@@ -274,3 +282,4 @@ class EntitiesMixin:
 
         return self.model_space.InsertBlock(insertion_point, block_name,
                                            x_scale, y_scale, z_scale, rotation)
+    

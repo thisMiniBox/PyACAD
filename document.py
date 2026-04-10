@@ -4,8 +4,15 @@ CAD管理器文档管理模块
 
 from dataclasses import dataclass
 from typing import Optional, Dict, Any
-from constants import AcRegenType
-from exceptions import ConnectionError
+# 动态导入，支持作为包或独立模块运行
+if __package__:
+    # 作为包的一部分运行，使用相对导入
+    from .constants import AcRegenType
+    from .exceptions import ConnectionError
+else:
+    # 作为独立模块运行，使用绝对导入
+    from constants import AcRegenType
+    from exceptions import ConnectionError
 
 @dataclass
 class DocumentInfo:
